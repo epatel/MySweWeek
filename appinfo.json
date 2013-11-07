@@ -1,0 +1,43 @@
+{
+    "versionLabel": "1.0",
+    "uuid": "1141b628-bc89-498e-b147-049f49c099ad",
+    "appKeys": {},
+    "longName": "My SweWeek",
+    "versionCode": 1,
+    "shortName": "My SweWeek",
+    "companyName": "epatel",
+    "watchapp": {
+        "watchface": true
+    },
+    "resources": {
+        "media": [
+            {
+                "characterRegex": "[:0-9]",
+                "type": "font",
+                "name": "FONT_CONTINUUM_BOLD_48",
+                "file": "fonts/contb.ttf"
+            },
+            {
+                "type": "font",
+                "name": "FONT_CONTINUUM_REGULAR_18",
+                "file": "fonts/contm.ttf"
+            },
+            {
+                "characterRegex": "[:0-9]",
+                "type": "font",
+                "name": "FONT_SANSATION_BOLD_47",
+                "file": "fonts/Sansation_Bold.ttf"
+            },
+            {
+                "type": "font",
+                "name": "FONT_SANSATION_REGULAR_18",
+                "file": "fonts/Sansation_Regular.ttf"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_MENU_ICON",
+                "file": "images/menu_icon_simplicity.png"
+            }
+        ]
+    }
+}
