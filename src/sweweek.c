@@ -1,6 +1,4 @@
 #include "pebble.h"
-#include "http.h"
-#include "httpcapture.h"
 
 Window *window;
 
@@ -23,7 +21,6 @@ static const char *month_names[] = {
 };
 
 void line_layer_update_callback(struct Layer *me, GContext *ctx) {
-  http_capture_set_gcontext(ctx);
   graphics_context_set_stroke_color(ctx, GColorWhite);
   graphics_draw_line(ctx, GPoint(8, 51), GPoint(131, 51));
   graphics_draw_line(ctx, GPoint(8, 52), GPoint(131, 52));
@@ -79,15 +76,6 @@ void update_display(struct tm *tick_time, TimeUnits units_changed) {
   }
 
   text_layer_set_text(text_time_layer, time_text);
-}
-
-void failed(int32_t cookie, int http_status, void *ctx) {
-}
-
-void success(int32_t cookie, int http_status, DictionaryIterator *dict, void *ctx) {
-}
-
-void reconnect(void *ctx) {
 }
 
 void handle_init() {
@@ -148,19 +136,6 @@ void handle_init() {
   // Avoid blank display on launch
   time_t t = time(NULL);
   update_display(localtime(&t), MINUTE_UNIT);
-
-  // Set buffer sizes for httpebble
-  app_message_open(124, 256);
-
-  // Set a unique app id 
-  http_set_app_id(0x20131106);
-  
-  // Set callbacks for httpebble (activates httpebble)
-  http_register_callbacks((HTTPCallbacks){
-      .failure = failed,
-      .success = success,
-      .reconnect = reconnect,
-  }, NULL);
 }
 
 void handle_deinit() {
