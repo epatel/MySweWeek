@@ -120,7 +120,8 @@ void handle_init() {
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_time_layer));
 	
   // year
-  text_year_layer = text_layer_create(GRect(22, 140, 144-22, 168-140));
+  text_year_layer = text_layer_create(GRect(10, 140, 144-20, 168-140));
+  text_layer_set_text_alignment(text_year_layer, GTextAlignmentCenter);
   text_layer_set_text_color(text_year_layer, GColorWhite);
   text_layer_set_background_color(text_year_layer, GColorClear);
   text_layer_set_font(text_year_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SANSATION_REGULAR_18)));
